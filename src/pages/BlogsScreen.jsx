@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom";
 import "../css/BlogsScreen.css";
 
 const BlogsScreen = () => {
@@ -36,7 +36,6 @@ const BlogsScreen = () => {
   };
 
   const truncateDescription = (description, maxLength) => {
-    // Truncate description and add a 'Read more' link if it's too long
     if (description.length > maxLength) {
       return description.substring(0, maxLength) + "...";
     }

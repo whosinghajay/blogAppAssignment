@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import ReactQuill from "react-quill"; // Import React Quill
-import "react-quill/dist/quill.snow.css"; // Import the Quill styles
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import "../css/EditBlog.css";
 
 const EditBlog = () => {
@@ -19,7 +19,6 @@ const EditBlog = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Fetch blog details
   const fetchBlogDetails = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_SERVER}/api/blogs/${id}`);
@@ -35,7 +34,6 @@ const EditBlog = () => {
     fetchBlogDetails();
   }, []);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBlogData((prev) => ({
@@ -44,22 +42,19 @@ const EditBlog = () => {
     }));
   };
 
-  // Handle image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setNewImage(file); // Set the new image file
+    setNewImage(file);
 
-    // Generate a preview of the new image
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setNewImagePreview(reader.result); // Set the preview URL
+        setNewImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Handle description change with React Quill
   const handleDescriptionChange = (value) => {
     setBlogData((prev) => ({
       ...prev,
@@ -67,7 +62,6 @@ const EditBlog = () => {
     }));
   };
 
-  // Submit updated blog
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -76,14 +70,14 @@ const EditBlog = () => {
     formData.append("description", blogData.description);
 
     if (newImage) {
-      formData.append("coverImage", newImage); // Add the new image to the request
+      formData.append("coverImage", newImage);
     }
 
     try {
       await axios.put(`${import.meta.env.VITE_API_SERVER}/api/blogs/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      navigate("/"); // Redirect to homepage or a success page
+      navigate("/");
     } catch (error) {
       setError("Failed to update blog. Please try again.");
     }

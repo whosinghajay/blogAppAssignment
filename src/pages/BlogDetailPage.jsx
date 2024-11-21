@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"; // To get the blog ID from the URL
+import { useParams } from "react-router-dom";
 import "../css/BlogDetailPage.css";
 
 const BlogDetailPage = () => {
-  const { id } = useParams(); // Get the blog ID from the URL
+  const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch the blog details based on the ID
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_API_SERVER}/api/blogs/${id}`
         );
-        setBlog(response.data); // Assuming the response is the full blog
+        setBlog(response.data);
       } catch (error) {
         setError("Failed to fetch blog details");
       } finally {

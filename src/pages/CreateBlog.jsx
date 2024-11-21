@@ -33,7 +33,7 @@ const CreateBlog = () => {
     }
   
     try {
-      const user = auth.currentUser; // Assume you already have Firebase auth configured
+      const user = auth.currentUser;
   
       if (!user) {
         toast.error("You must be logged in to create a blog!", {
@@ -42,17 +42,15 @@ const CreateBlog = () => {
         return;
       }
   
-      // Create FormData to handle the file upload
       const formData = new FormData();
-      formData.append("userId", user.uid); // Add user ID
-      formData.append("title", title); // Add title
-      formData.append("description", description); // Add description
-      formData.append("coverImage", coverImage); // Add the cover image file
+      formData.append("userId", user.uid);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("coverImage", coverImage);
   
-      // Send the data to your backend
       const response = await axios.post(`${import.meta.env.VITE_API_SERVER}/api/blogs`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data", // Required for file uploads
+          "Content-Type": "multipart/form-data",
         },
       });
   
@@ -61,7 +59,6 @@ const CreateBlog = () => {
           position: "top-center",
         });
   
-        // Clear the form
         setTitle("");
         setDescription("");
         setCoverImage(null);

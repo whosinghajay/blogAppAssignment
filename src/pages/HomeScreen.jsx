@@ -40,7 +40,6 @@ const HomeScreen = () => {
     }
   }
 
-  // Fetch blogs created by the logged-in user from the backend
   const fetchUserBlogs = async (userId) => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_SERVER}/api/blogs`);
@@ -63,7 +62,7 @@ const HomeScreen = () => {
       if (blogToDelete) {
         await axios.delete(`${import.meta.env.VITE_API_SERVER}/api/blogs/${blogToDelete}`);
         setUserBlogs(userBlogs.filter((blog) => blog._id !== blogToDelete));
-        setShowModal(false); // Close the modal after successful delete
+        setShowModal(false);
       }
     } catch (error) {
       console.error("Error deleting blog:", error);
@@ -151,7 +150,6 @@ const HomeScreen = () => {
                     className="blog-description"
                     dangerouslySetInnerHTML={{ __html: blog.description.slice(0,100) }}
                   />
-                  {/* Show only a preview of the description */}
                   <div className="blog-actions">
                     <Link
                       to={`/edit-blog/${blog._id}`}
@@ -161,7 +159,6 @@ const HomeScreen = () => {
                     </Link>
                     <button
                       className="btn btn-delete"
-                      // onClick={() => handleDeleteBlog(blog._id)}
                       onClick={() => openModal(blog._id)}
                     >
                       Delete
