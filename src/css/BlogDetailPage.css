@@ -1,0 +1,90 @@
+/* Blog Detail Container */
+.blog-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 1100px; /* Ensures content is not too wide on large screens */
+    padding: 20px;
+    background-color: #f7f7f7; /* Light background to separate content from page background */
+  }
+  
+  /* Blog Content */
+  .blog-content {
+    width: 100%;
+    max-width: 900px; /* Max width for large screens */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    /* Removed box-shadow and added a more spacious layout */
+    margin-bottom: 20px;
+  }
+  
+  /* Blog Title */
+  .blog-title {
+    font-size: 3rem; /* Larger title for emphasis */
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.3;
+  }
+  
+  /* Cover Image Styling */
+  .cover-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 800px; /* Set max-width to 800px */
+    max-height: 300px; /* Set height to 300px */
+    margin-bottom: 20px;
+  }
+  
+  /* Blog Description */
+  .blog-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  /* .blog-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  } */
+  
+  .loading-spinner {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .error-message {
+    text-align: center;
+    font-size: 18px;
+    color: red;
+  }
+  
+  /* Published Info */
+  .published-info {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 20px;
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .blog-detail-container {
+      padding: 10px;
+    }
+    .blog-content {
+      padding: 15px;
+    }
+    .blog-title {
+      font-size: 2rem;
+    }
+    .blog-description {
+      font-size: 1rem;
+    }
+  }
+  
