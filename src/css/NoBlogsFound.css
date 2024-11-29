@@ -1,0 +1,32 @@
+.no-blogs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    text-align: center;
+    background: #f9fafb;
+    padding: 20px;
+  }
+  
+  .no-blogs-content {
+    max-width: 500px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .no-blogs-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+  }
+  
+  .no-blogs-suggestion {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 10px;
+  }
+  
