@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../css/HomeScreen.css";
 import { auth, db } from "../components/firebase";
 import axios from "axios";
+import NoBlogsFound from "./NoBlogsFound";
 
 const HomeScreen = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -172,7 +173,8 @@ const HomeScreen = () => {
             ))}
           </div>
         ) : (
-          <p>You have not posted any blogs yet.</p>
+          // <p>You have not posted any blogs yet.</p>
+          <NoBlogsFound/>
         )}
       </section>
 
