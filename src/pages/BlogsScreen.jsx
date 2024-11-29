@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../css/BlogsScreen.css";
+import LoadingBar from "./LoadingBar";
+import NoBlogsFound from "./NoBlogsFound";
 
 const BlogsScreen = () => {
   const [blogs, setBlogs] = useState([]);
@@ -46,12 +48,14 @@ const BlogsScreen = () => {
     <div>
       <h1>All Blogs</h1>
 
-      {loading && <p>Loading blogs...</p>}
+      {/* {loading && <p>Loading blogs...</p>} */}
+      {<LoadingBar isLoading={loading}/>}
       {error && <p>{error}</p>}
 
       <div className="blogs-container">
         {currentBlogs.length === 0 ? (
-          <p>No blogs found.</p>
+          // <p>No blogs found.</p>
+          <NoBlogsFound />
         ) : (
           currentBlogs.map((blog) => (
             <div key={blog._id} className="blog-post">
